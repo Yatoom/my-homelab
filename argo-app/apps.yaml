@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: git@github.com:Yatoom/my-homelab.git
     targetRevision: HEAD
-    path: applications
+    path: argo-app/applications
     directory:
       recurse: true
   destination:
