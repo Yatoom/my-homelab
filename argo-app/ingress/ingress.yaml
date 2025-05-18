@@ -44,4 +44,4 @@ spec:
                 name: jellyfin
                 port:
                   number: 8096
-            namespace: argocd
+            namespace: jellyfin
