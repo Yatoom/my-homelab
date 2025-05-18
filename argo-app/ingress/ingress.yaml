@@ -34,7 +34,7 @@ spec:
                 name: docker-registry
                 port:
                   number: 5000
-    - host: jellyfin.jerryberry.nl
+    - host: movies.jerryberry.nl
       http:
         paths:
           - path: /
