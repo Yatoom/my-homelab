@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://k8s-at-home.com/charts/
     chart: jellyfin
-    targetRevision: 10.0.0
+    targetRevision: 4.5.2
     helm:
       values: |
         persistence:
