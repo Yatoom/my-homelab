@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://k8s-at-home.com/charts/
-    chart: jellyfin
-    targetRevision: 4.5.2
+    repoURL: https://github.com/jellyfin/jellyfin-helm
+    targetRevision: 2.3.0
+    path: charts/jellyfin
     helm:
       values: |
         persistence:
