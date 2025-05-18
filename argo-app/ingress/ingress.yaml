@@ -11,7 +11,7 @@ spec:
     - hosts:
         - jerryberry.nl
         - docker.jerryberry.nl
-        - jellyfin.jerryberry.nl
+        - movies.jerryberry.nl
       secretName: jerryberry-ingress-tls
   rules:
     - host: jerryberry.nl
