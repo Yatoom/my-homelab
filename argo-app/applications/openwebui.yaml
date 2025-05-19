@@ -13,7 +13,8 @@ spec:
       values: |
         pipelines:
           enabled: false
-        storageClass: openebs-hostpath
+        persistence:
+          storageClass: openebs-hostpath
   destination:
     server: https://kubernetes.default.svc
     namespace: open-webui
