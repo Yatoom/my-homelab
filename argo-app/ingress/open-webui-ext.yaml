@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: open-webui-ext
+  namespace: default
+spec:
+  type: ExternalName
+  externalName: open-webui.open-webui.svc.cluster.local

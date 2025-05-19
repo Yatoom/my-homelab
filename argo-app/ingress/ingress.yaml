@@ -12,6 +12,7 @@ spec:
         - jerryberry.nl
         - docker.jerryberry.nl
         - movies.jerryberry.nl
+        - chat.jerryberry.nl
       secretName: jerryberry-ingress-tls
   rules:
     - host: jerryberry.nl
@@ -44,3 +45,13 @@ spec:
                 name: jellyfin-ext
                 port:
                   number: 8096
+    - host: chat.jerryberry.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: open-webui-ext
+                port:
+                  number: 80
