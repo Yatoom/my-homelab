@@ -5,4 +5,4 @@ metadata:
   namespace: default
 spec:
   type: ExternalName
-  externalName: jellyfin.jellyfin.svc.cluster.local
+  externalName: jellyfin.media.svc.cluster.local
