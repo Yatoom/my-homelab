@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: qbittorrent-ext
+  namespace: default
+spec:
+  type: ExternalName
+  externalName: qbittorrent-svc.qbittorrent.svc.cluster.local

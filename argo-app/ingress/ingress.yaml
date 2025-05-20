@@ -15,6 +15,7 @@ spec:
         - chat.jerryberry.nl
         - sonarr.jerryberry.nl
         - transmission.jerryberry.nl
+        - qbittorrent.jerryberry.nl
       secretName: jerryberry-ingress-tls
   rules:
     - host: jerryberry.nl
@@ -77,3 +78,13 @@ spec:
                 name: transmission-ext
                 port:
                   number: 9091
+    - host: qbittorrent.jerryberry.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: qbittorrent-ext
+                port:
+                  number: 8080
