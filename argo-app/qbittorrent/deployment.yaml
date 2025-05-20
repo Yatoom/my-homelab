@@ -30,16 +30,6 @@ spec:
               value: "1000"
             - name: PGID
               value: "1000"
-            - name: QBT_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: qbittorrent-credentials
-                  key: username
-            - name: QBT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: qbittorrent-credentials
-                  key: password
       volumes:
         - name: qbittorrent-config
           persistentVolumeClaim:
