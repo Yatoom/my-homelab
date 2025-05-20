@@ -21,7 +21,7 @@ spec:
           volumeMounts:
             - name: qbittorrent-config
               mountPath: /config
-            - name: qbittorrent-downloads
+            - name: downloads
               mountPath: /downloads
           env:
             - name: TZ
@@ -44,6 +44,6 @@ spec:
         - name: qbittorrent-config
           persistentVolumeClaim:
             claimName: qbittorrent-pvc
-        - name: qbittorrent-downloads
+        - name: downloads
           persistentVolumeClaim:
-            claimName: qbittorrent-downloads-pvc
+            claimName: shared-media-pvc

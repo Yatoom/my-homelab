@@ -20,6 +20,7 @@ spec:
             enabled: true
             storageClass: openebs-hostpath
             size: 100Gi
+            existingClaim: shared-media-pvc
         service:
           type: NodePort
   destination:
