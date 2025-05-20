@@ -88,3 +88,13 @@ spec:
                 name: qbittorrent-ext
                 port:
                   number: 8080
+    - host: prowlarr.jerryberry.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: prowlarr-ext
+                port:
+                  number: 9696
