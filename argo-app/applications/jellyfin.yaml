@@ -18,7 +18,7 @@ spec:
             size: 10Gi
           media:
             enabled: true
-            storageClass: openebs-hostpath
+            storageClass: manual
             size: 100Gi
             existingClaim: shared-media-pvc
         service:

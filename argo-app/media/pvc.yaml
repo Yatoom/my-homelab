@@ -1,13 +1,27 @@
-# shared-media-pvc.yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: shared-media-pvc
-  namespace: media
+  namespace: qbittorrent
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 100Gi
-  storageClassName: openebs-hostpath
+  storageClassName: "manual"
+  volumeName: shared-media-pv
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: shared-media-pvc
+  namespace: jellyfin
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 100Gi
+  storageClassName: "manual"
+  volumeName: shared-media-pv
