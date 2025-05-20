@@ -13,6 +13,7 @@ spec:
         - docker.jerryberry.nl
         - movies.jerryberry.nl
         - chat.jerryberry.nl
+        - sonarr.jerryberry.nl
       secretName: jerryberry-ingress-tls
   rules:
     - host: jerryberry.nl
@@ -55,3 +56,13 @@ spec:
                 name: open-webui-ext
                 port:
                   number: 80
+    - host: sonarr.jerryberry.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sonarr-ext
+                port:
+                  number: 8989

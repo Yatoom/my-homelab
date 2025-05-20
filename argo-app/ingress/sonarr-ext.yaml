@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sonarr-ext
+  namespace: default
+spec:
+  type: ExternalName
+  externalName: sonarr-svc.sonarr.svc.cluster.local
