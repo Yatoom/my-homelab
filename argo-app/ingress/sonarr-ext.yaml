@@ -5,4 +5,4 @@ metadata:
   namespace: default
 spec:
   type: ExternalName
-  externalName: sonarr-svc.sonarr.svc.cluster.local
+  externalName: sonarr-svc.media.svc.cluster.local

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: sonarr-deployment
-  namespace: sonarr
+  namespace: media
 spec:
   replicas: 1
   selector:
@@ -21,10 +21,15 @@ spec:
           volumeMounts:
             - name: sonarr-config
               mountPath: /config
+            - name: sonarr-downloads
+              mountPath: /shared-media
       volumes:
         - name: sonarr-config
           persistentVolumeClaim:
             claimName: sonarr-pvc
+        - name: sonarr-downloads
+          persistentVolumeClaim:
+            claimName: shared-media-pvc
       env:
         - name: TZ
           value: "America/New_York"

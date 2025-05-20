@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: sonarr-pvc
-  namespace: sonarr
+  namespace: media
 spec:
   accessModes:
     - ReadWriteOnce
