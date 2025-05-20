@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: transmission-ext
+  namespace: default
+spec:
+  type: ExternalName
+  externalName: transmission-svc.transmission.svc.cluster.local

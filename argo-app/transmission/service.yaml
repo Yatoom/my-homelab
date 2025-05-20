@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: transmission-svc
+  namespace: transmission
+spec:
+  selector:
+    app: transmission
+  ports:
+    - name: transmission-web
+      port: 9091
+      targetPort: 9091
+      protocol: TCP
+  type: ClusterIP

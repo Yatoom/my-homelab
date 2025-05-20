@@ -14,6 +14,7 @@ spec:
         - movies.jerryberry.nl
         - chat.jerryberry.nl
         - sonarr.jerryberry.nl
+        - transmission.jerryberry.nl
       secretName: jerryberry-ingress-tls
   rules:
     - host: jerryberry.nl
@@ -66,3 +67,13 @@ spec:
                 name: sonarr-ext
                 port:
                   number: 8989
+    - host: transmission.jerryberry.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: transmission-ext
+                port:
+                  number: 9091
