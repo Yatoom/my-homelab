@@ -6,7 +6,6 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: lets-encrypt
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   tls:
     - hosts:
@@ -18,7 +17,6 @@ spec:
         - transmission.jerryberry.nl
         - qbittorrent.jerryberry.nl
         - prowlarr.jerryberry.nl
-        - argocd.jerryberry.nl
       secretName: jerryberry-ingress-tls
   rules:
     - host: jerryberry.nl
@@ -101,13 +99,3 @@ spec:
                 name: prowlarr-ext
                 port:
                   number: 9696
-    - host: argocd.jerryberry.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: argocd-ext
-                port:
-                  number: 443
