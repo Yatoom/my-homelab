@@ -7,5 +7,5 @@ spec:
   type: ExternalName
   externalName: argo-cd-argocd-server.argocd.svc.cluster.local
   ports:
-    - port: 80
+    - port: 443
       targetPort: 443

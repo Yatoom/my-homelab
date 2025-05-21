@@ -6,6 +6,7 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: lets-encrypt
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   tls:
     - hosts:
@@ -109,4 +110,4 @@ spec:
               service:
                 name: argocd-ext
                 port:
-                  number: 80
+                  number: 443
