@@ -9,36 +9,13 @@ metadata:
 spec:
   tls:
     - hosts:
-        - jerryberry.nl
-        - docker.jerryberry.nl
         - movies.jerryberry.nl
         - chat.jerryberry.nl
         - sonarr.jerryberry.nl
-        - transmission.jerryberry.nl
         - qbittorrent.jerryberry.nl
         - prowlarr.jerryberry.nl
       secretName: jerryberry-ingress-tls
   rules:
-    - host: jerryberry.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: nginx-nodeport
-                port:
-                  number: 80
-    - host: docker.jerryberry.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: docker-registry
-                port:
-                  number: 5000
     - host: movies.jerryberry.nl
       http:
         paths:
@@ -69,16 +46,6 @@ spec:
                 name: sonarr-ext
                 port:
                   number: 8989
-    - host: transmission.jerryberry.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: transmission-ext
-                port:
-                  number: 9091
     - host: qbittorrent.jerryberry.nl
       http:
         paths:
