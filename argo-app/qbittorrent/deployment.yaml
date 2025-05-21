@@ -23,6 +23,7 @@ spec:
               mountPath: /config
             - name: downloads
               mountPath: /downloads
+              subPath: downloads
           env:
             - name: TZ
               value: "America/New_York"
