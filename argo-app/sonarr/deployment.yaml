@@ -21,26 +21,23 @@ spec:
           volumeMounts:
             - name: sonarr-config
               mountPath: /config
-            - name: sonarr-downloads
+            - name: shared-media
               mountPath: /downloads
-            - name: sonarr-tv
+              subPath: downloads
+            - name: shared-media
               mountPath: /tv
+              subPath: tv
+          env:
+            - name: TZ
+              value: "America/New_York"
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
       volumes:
         - name: sonarr-config
           persistentVolumeClaim:
             claimName: sonarr-pvc
-        - name: sonarr-downloads
+        - name: shared-media
           persistentVolumeClaim:
             claimName: shared-media-pvc
-            subpath: downloads
-        - name: sonarr-tv
-          persistentVolumeClaim:
-            claimName: shared-media-pvc
-            subpath: tv
-      env:
-        - name: TZ
-          value: "America/New_York"
-        - name: PUID
-          value: "1000"
-        - name: PGID
-          value: "1000"
