@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: argocd-ext
+  namespace: default
+spec:
+  type: ExternalName
+  externalName: argo-cd-argocd-server.argocd.svc.cluster.local
