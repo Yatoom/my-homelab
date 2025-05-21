@@ -22,7 +22,9 @@ spec:
             - name: sonarr-config
               mountPath: /config
             - name: sonarr-downloads
-              mountPath: /shared-media
+              mountPath: /downloads
+            - name: sonarr-tv
+              mountPath: /tv
       volumes:
         - name: sonarr-config
           persistentVolumeClaim:
@@ -30,6 +32,11 @@ spec:
         - name: sonarr-downloads
           persistentVolumeClaim:
             claimName: shared-media-pvc
+            subpath: downloads
+        - name: sonarr-tv
+          persistentVolumeClaim:
+            claimName: shared-media-pvc
+            subpath: tv
       env:
         - name: TZ
           value: "America/New_York"

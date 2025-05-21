@@ -37,3 +37,4 @@ spec:
         - name: downloads
           persistentVolumeClaim:
             claimName: shared-media-pvc
+            subPath: downloads
