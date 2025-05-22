@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: radarr-ext
+  namespace: default
+spec:
+  type: ExternalName
+  externalName: radarr-svc.media.svc.cluster.local
