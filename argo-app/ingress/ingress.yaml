@@ -14,6 +14,7 @@ spec:
         - sonarr.jerryberry.nl
         - qbittorrent.jerryberry.nl
         - prowlarr.jerryberry.nl
+        - radarr.jerryberry.nl
       secretName: jerryberry-ingress-tls
   rules:
     - host: movies.jerryberry.nl
