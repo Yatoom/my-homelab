@@ -25,8 +25,8 @@ spec:
               mountPath: /downloads
               subPath: downloads
             - name: radarr-media
-              mountPath: /tv
-              subPath: tv
+              mountPath: /movies
+              subPath: movies
           env:
             - name: TZ
               value: "America/New_York"
