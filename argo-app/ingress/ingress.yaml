@@ -46,6 +46,16 @@ spec:
                 name: sonarr-ext
                 port:
                   number: 8989
+    - host: radarr.jerryberry.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: radarr-ext
+                port:
+                  number: 7878
     - host: qbittorrent.jerryberry.nl
       http:
         paths:
