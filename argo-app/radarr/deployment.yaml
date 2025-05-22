@@ -21,10 +21,10 @@ spec:
           volumeMounts:
             - name: radarr-config
               mountPath: /config
-            - name: radarr-media
+            - name: shared-media
               mountPath: /downloads
               subPath: downloads
-            - name: radarr-media
+            - name: shared-media
               mountPath: /movies
               subPath: movies
           env:
