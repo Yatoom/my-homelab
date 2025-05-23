@@ -10,4 +10,4 @@ spec:
     requests:
       storage: 100Gi
   storageClassName: "manual"
-  volumeName: shared-media-pv
+  volumeName: ssd-shared-media-pv
