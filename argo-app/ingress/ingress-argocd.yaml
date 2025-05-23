@@ -20,6 +20,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: argocd-ext
+                name: argocd
                 port:
                   name: https
