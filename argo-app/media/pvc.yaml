@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: shared-media-pvc
+  name: ssd-media-pvc
   namespace: media
 spec:
   accessModes:
@@ -10,4 +10,4 @@ spec:
     requests:
       storage: 100Gi
   storageClassName: "manual"
-  volumeName: ssd-shared-media-pv
+  volumeName: ssd-media-pv

@@ -40,4 +40,4 @@ spec:
             claimName: radarr-pvc
         - name: shared-media
           persistentVolumeClaim:
-            claimName: shared-media-pvc
+            claimName: ssd-media-pvc

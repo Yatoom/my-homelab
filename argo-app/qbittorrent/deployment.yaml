@@ -37,5 +37,5 @@ spec:
             claimName: qbittorrent-pvc
         - name: downloads
           persistentVolumeClaim:
-            claimName: shared-media-pvc
+            claimName: ssd-media-pvc
             subPath: downloads

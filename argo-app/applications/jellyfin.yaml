@@ -20,7 +20,7 @@ spec:
             enabled: true
             storageClass: manual
             size: 100Gi
-            existingClaim: shared-media-pvc
+            existingClaim: ssd-media-pvc
         service:
           type: NodePort
   destination:
