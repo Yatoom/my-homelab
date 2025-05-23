@@ -10,4 +10,4 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: "manual"
   hostPath:
-    path: "/home/jerry/shared-media"
+    path: "/mnt/ssd/shared-media"
