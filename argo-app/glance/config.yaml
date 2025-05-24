@@ -1,0 +1,153 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: glance-config
+  namespace: glance
+data:
+  config.yaml: |
+    - name: Home
+      # Optionally, if you only have a single page you can hide the desktop navigation for a cleaner look
+      # hide-desktop-navigation: true
+      columns:
+        - size: small
+          widgets:
+            - type: calendar
+              first-day-of-week: monday
+
+            - type: monitor
+              cache: 1m
+              title: Services
+              sites:
+                - title: Movies
+                  url: https://movies.jerryberry.nl
+                  icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/jellyfin.webp
+                - title: Chat
+                  url: https://chat.jerryberry.nl
+                  icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/open-webui.webp
+                - title: ArgoCD
+                  url: https://argocd.jerryberry.nl
+                  icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/argo-cd.webp
+
+            - type: rss
+              limit: 25
+              collapse-after: 8
+              cache: 12h
+              feeds:
+                - url: https://seekingalpha.com/market_currents.xml
+                  title: Seeking Alpha
+                - url: https://dev.to/feed/tag/webdev
+                  title: Dev.to
+                - url: https://thenewstack.io/feed/
+                  title: The New Stack
+                - url: https://venturebeat.com/category/ai/feed/
+                  title: Venture Beat
+                - url: https://thenextweb.com/feed
+                  title: The Next Web
+
+        - size: full
+          widgets:
+            - type: group
+              widgets:
+                - type: hacker-news
+                - type: lobsters
+                - type: reddit
+                  subreddit: technology
+                  show-thumbnails: true
+                - type: reddit
+                  subreddit: selfhosted
+                  show-thumbnails: true
+                - type: reddit
+                  subreddit: devops
+                  show-thumbnails: true
+                - type: reddit
+                  subreddit: wallstreetbets
+                  show-thumbnails: true
+                - type: reddit
+                  subreddit: rust
+                  show-thumbnails: true
+
+            - type: videos
+              style: grid-cards
+              channels:
+                - UCXuqSBlHAE6Xw-yeJA0Tunw # Linus Tech Tips
+                - UCsBjURrPoezykLs9EqgamOA # Fireship
+                - UCBJycsmduvYEL83R_U4JriQ # Marques Brownlee
+                - UCHnyfMqiRRG1u-2MsSQLbXA # Veritasium
+                - UC8butISFwT-Wl7EV0hUK0BQ # Free Code Camp
+                - UC4QZ_LsYcvcq7qOsOhpAX4A # Cold Fusion TV
+                - UCsXVk37bltHxD1rDPwtNM8Q # Kurzgezagt
+                - UCUyeluBRhGPCW4rPe_UvBZQ # The Primeagen
+                - UCbRP3c757lWg9M-U7TyEkXA # Theo3
+                - UCvSXMi2LebwJEM1s4bz5IBA # New Money
+                - UCOk-gHyjcWZNj3Br4oxwh0A # Techno Tim
+                - UCjREVt2ZJU8ql-NC9Gu-TJw # Code to the Moon
+                - UC9-y-6csu5WGm29I7JiwpnA # Computerphile
+                - UCdngmbVKX1Tgre699-XLlUA # Techworld with Nana
+                - UCCKpicnIwBP3VPxBAZWDeNA # Money & Macro
+                - UCbfYPyITQ-7l4upoX8nvctg # Two Minute Papers
+                - UCNJ1Ymd5yFuUPtn21xtRbbw # AI Explained
+
+        - size: small
+          widgets:
+            - type: weather
+              location: Amsterdam, The Netherlands
+              units: metric # alternatively "imperial"
+              hour-format: 24h # alternatively "24h"
+              # Optionally hide the location from being displayed in the widget
+              # hide-location: true
+
+            - type: markets
+              title: USA market
+              markets:
+                - symbol: MSFT
+                  name: Microsoft
+                  chart-link: https://www.tradingview.com/chart/?symbol=MSFT
+                  symbol-link: https://www.tradingview.com/symbols/MSFT
+                - symbol: GOOG
+                  name: Google
+                  chart-link: https://www.tradingview.com/chart/?symbol=GOOG
+                  symbol-link: https://www.tradingview.com/symbols/GOOG
+                - symbol: META
+                  name: Meta
+                  chart-link: https://www.tradingview.com/chart/?symbol=META
+                  symbol-link: https://www.tradingview.com/symbols/META
+                - symbol: AMZN
+                  name: Amazon
+                  chart-link: https://www.tradingview.com/chart/?symbol=AMZN
+                  symbol-link: https://www.tradingview.com/symbols/AMZN
+                - symbol: NVDA
+                  name: NVIDIA
+                  chart-link: https://www.tradingview.com/chart/?symbol=NVDA
+                  symbol-link: https://www.tradingview.com/symbols/NVDA
+
+            - type: markets
+              title: China market
+              markets:
+                - symbol: "1810.HK"
+                  name: Xiaomi
+                  symbol-link: https://www.tradingview.com/symbols/HKEX-1810/
+                  chart-link: https://www.tradingview.com/chart/?symbol=HKEX%3A1810
+                - symbol: BIDU
+                  name: Baidu
+                  symbol-link: https://www.tradingview.com/symbols/NASDAQ-BIDU/
+                  chart-link: https://www.tradingview.com/chart/?symbol=NASDAQ%3ABIDU
+                - symbol: BABA
+                  name: Alibaba
+                  symbol-link: https://www.tradingview.com/symbols/NYSE-BABA
+                  chart-link: https://www.tradingview.com/chart/?symbol=NYSE%3ABABA
+                - symbol: "0700.HK"
+                  name: Tencent
+                  symbol-link: https://www.tradingview.com/symbols/HKEX-700/
+                  chart-link: https://www.tradingview.com/chart/?symbol=HKEX%3A700
+                - symbol: "1211.HK"
+                  name: BYD
+                  symbol-link: https://www.tradingview.com/symbols/HKEX-1211/
+                  chart-link: https://www.tradingview.com/chart/?symbol=HKEX%3A1211
+
+            - type: markets
+              title: Crypto
+              markets:
+                - symbol: BTC-USD
+                  name: Bitcoin
+                  chart-link: https://www.tradingview.com/symbols/BTCUSD/?exchange=COINBASE
+                  symbol-link: https://www.tradingview.com/chart/0Kd52RlG/?symbol=COINBASE%3ABTCUSD
