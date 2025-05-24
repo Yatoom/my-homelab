@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: "https://github.com/nextcloud"
+    repoURL: "https://github.com//nextcloud/helm"
     targetRevision: HEAD
-    path: helm/charts/nextcloud/
+    path: charts/nextcloud/
     helm:
       values: |
         image:
