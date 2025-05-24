@@ -15,19 +15,19 @@ spec:
         image:
           tag: latest
         n8n:
-          host: n8n.jerrberry.nl
+          host: n8n.jerryberry.nl
           protocol: https
         ingress:
           enabled: true
           className: nginx
           hosts:
-            - host: n8n.jerrberry.nl
+            - host: n8n.jerryberry.nl
               paths:
                 - path: /
                   pathType: Prefix
           tls:
             - hosts:
-                - n8n.jerrberry.nl
+                - n8n.jerryberry.nl
               secretName: n8n-tls
   destination:
     server: https://kubernetes.default.svc
