@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nextcloud
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/nextcloud"
+    targetRevision: HEAD
+    path: helm/charts/nextcloud/
+    helm:
+      values: |
+        image:
+          tag: latest
+        nextcloud:
+          host: nextcloud.jerryberry.nl
+          protocol: https
+        ingress:
+          annotations:
+            cert-manager.io/cluster-issuer: lets-encrypt
+            nginx.ingress.kubernetes.io/proxy-body-size: "0"
+          enabled: true
+          className: nginx
+          hosts:
+            - host: nextcloud.jerryberry.nl
+              paths:
+                - /
+          tls:
+            - hosts:
+                - nextcloud.jerryberry.nl
+              secretName: nextcloud-tls
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: nextcloud
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
