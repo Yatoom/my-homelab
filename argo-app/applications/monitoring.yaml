@@ -10,15 +10,6 @@ spec:
     chart: kube-prometheus-stack
     targetRevision: 58.5.0
 
-    # This section was added because of an error:
-    # CustomResourceDefinition.apiextensions.k8s.io (...) is invalid: metadata.annotations:
-    # Too long: may not be more than 262144 bytes
-    ignoreDifferences:
-      - group: apiextensions.k8s.io
-        kind: CustomResourceDefinition
-        jsonPointers:
-          - /metadata/annotations
-
     helm:
       values: |
         prometheus:
@@ -50,3 +41,6 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+
+      # Added to resolve error that says CRD is invalid, annotation may not be more than 262144 bytes.
+      - ServerSideApply=true
