@@ -1,8 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: monitoring-ingress
-  namespace: monitoring
+  name: observability-ingress
+  namespace: observability
   annotations:
     cert-manager.io/cluster-issuer: lets-encrypt
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
@@ -11,7 +11,8 @@ spec:
     - hosts:
         - grafana.jerryberry.nl
         - prometheus.jerryberry.nl
-      secretName: monitoring-tls
+        - alerts.jerryberry.nl
+      secretName: observability-tls
   rules:
     - host: grafana.jerryberry.nl
       http:
@@ -20,7 +21,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: kube-prometheus-stack-grafana
+                name: kube-prom-stack-grafana
                 port:
                   number: 80
     - host: prometheus.jerryberry.nl
@@ -30,6 +31,16 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: kube-prometheus-stack-prometheus
+                name: kube-prom-stack-kube-prome-prometheus
                 port:
-                  number: 80
+                  number: 9090
+    - host: alerts.jerryberry.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kube-prom-stack-kube-prome-alertmanager
+                port:
+                  number: 9093
