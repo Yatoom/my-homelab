@@ -20,7 +20,7 @@ spec:
             enabled: true
             storageClass: manual
             size: 50Gi
-            existingClaim: ssd-nextcloud-pvc
+            existingClaim: nextcloud-pvc
         ingress:
           annotations:
             cert-manager.io/cluster-issuer: lets-encrypt
