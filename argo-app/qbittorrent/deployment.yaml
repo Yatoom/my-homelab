@@ -38,4 +38,3 @@ spec:
         - name: downloads
           persistentVolumeClaim:
             claimName: ssd-media-pvc
-            subPath: downloads
