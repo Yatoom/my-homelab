@@ -1,0 +1,38 @@
+# apps/n8n/argocd-app.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: n8n
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://8gears.github.io/n8n-helm-chart/
+    chart: n8n
+    targetRevision: 0.19.0 # Check for latest version
+    helm:
+      values: |
+        image:
+          tag: latest
+        n8n:
+          host: n8n.jerrberry.nl
+          protocol: https
+        ingress:
+          enabled: true
+          className: nginx
+          hosts:
+            - host: n8n.jerrberry.nl
+              paths:
+                - path: /
+                  pathType: Prefix
+          tls:
+            - hosts:
+                - n8n.jerrberry.nl
+              secretName: n8n-tls
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: n8n
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
