@@ -28,7 +28,9 @@ data:
                 - title: ArgoCD
                   url: https://argocd.jerryberry.nl
                   icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/argo-cd.webp
-
+                - title: Grafana
+                  url: https://argocd.jerryberry.nl
+                  icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/grafana.webp
             - type: rss
               limit: 25
               collapse-after: 8
