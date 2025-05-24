@@ -34,16 +34,24 @@ data:
               collapse-after: 8
               cache: 12h
               feeds:
+                - url: https://selfh.st/rss/
+                  title: selfh.st
+                  limit: 4
                 - url: https://seekingalpha.com/market_currents.xml
                   title: Seeking Alpha
+                  limit: 4
                 - url: https://dev.to/feed/tag/webdev
                   title: Dev.to
+                  limit: 4
                 - url: https://thenewstack.io/feed/
                   title: The New Stack
+                  limit: 4
                 - url: https://venturebeat.com/category/ai/feed/
                   title: Venture Beat
+                  limit: 4
                 - url: https://thenextweb.com/feed
                   title: The Next Web
+                  limit: 4
 
         - size: full
           widgets:
