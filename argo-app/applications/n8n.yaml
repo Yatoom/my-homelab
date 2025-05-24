@@ -7,7 +7,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: github.com/8gears/n8n-helm-chart
+    repoURL: 8gears.container-registry.com/library/n8n
     chart: n8n
     targetRevision: 1.0.6
     helm:
