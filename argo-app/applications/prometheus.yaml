@@ -9,6 +9,16 @@ spec:
     repoURL: https://prometheus-community.github.io/helm-charts
     chart: kube-prometheus-stack
     targetRevision: 58.5.0
+
+    # This section was added because of an error:
+    # CustomResourceDefinition.apiextensions.k8s.io (...) is invalid: metadata.annotations:
+    # Too long: may not be more than 262144 bytes
+    ignoreDifferences:
+      - group: apiextensions.k8s.io
+        kind: CustomResourceDefinition
+        jsonPointers:
+          - /metadata/annotations
+
     helm:
       values: |
         prometheus:
@@ -22,6 +32,12 @@ spec:
                   resources:
                     requests:
                       storage: 2Gi
+        kubeControllerManager:
+          endpoints:
+            - 192.168.1.11
+        kubeScheduler:
+          endpoints:
+            - 192.168.1.11
         grafana:
           enabled: true
           adminPassword: prom-operator
