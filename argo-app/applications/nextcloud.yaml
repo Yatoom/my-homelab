@@ -16,6 +16,11 @@ spec:
         nextcloud:
           host: nextcloud.jerryberry.nl
           protocol: https
+        persistence:
+            enabled: true
+            storageClass: manual
+            size: 50Gi
+            existingClaim: ssd-nextcloud-pv
         ingress:
           annotations:
             cert-manager.io/cluster-issuer: lets-encrypt
