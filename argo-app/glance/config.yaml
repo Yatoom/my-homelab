@@ -31,6 +31,9 @@ data:
                 - title: Grafana
                   url: https://grafana.jerryberry.nl
                   icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/grafana.webp
+                - title: N8N
+                  url: https://n8n.jerryberry.nl
+                  icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/n8n.webp
             - type: rss
               limit: 25
               collapse-after: 8
