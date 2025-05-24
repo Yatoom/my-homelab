@@ -34,6 +34,9 @@ data:
                 - title: N8N
                   url: https://n8n.jerryberry.nl
                   icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/n8n.webp
+                - title: NextCloud
+                  url: https://nextcloud.jerryberry.nl
+                  icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/nextcloud.webp
             - type: rss
               limit: 25
               collapse-after: 8
