@@ -37,6 +37,9 @@ data:
                 - title: NextCloud
                   url: https://nextcloud.jerryberry.nl
                   icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/nextcloud.webp
+                - title: Music
+                  url: https://music.jerryberry.nl
+                  icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/koel.webp
             - type: rss
               limit: 25
               collapse-after: 8
