@@ -69,7 +69,7 @@ spec:
           command: ["php", "artisan", "koel:init", "--no-assets"]
           env:
             - name: FORCE_HTTPS
-              value: true
+              value: "true"
             - name: DB_CONNECTION
               value: mysql
             - name: DB_HOST
