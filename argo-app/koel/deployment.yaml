@@ -63,6 +63,29 @@ spec:
       labels:
         app: koel
     spec:
+      initContainers:
+        - name: koel-init
+          image: phanan/koel
+          command: ["php", "artisan", "koel:init", "--no-assets"]
+          env:
+            - name: DB_CONNECTION
+              value: mysql
+            - name: DB_HOST
+              value: database
+            - name: DB_DATABASE
+              value: koel
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: koel-db-secret
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: koel-db-secret
+                  key: password
+          volumeMounts:
+            # mount the same volumes as the main koel container if needed
       containers:
         - name: koel
           image: phanan/koel:latest
