@@ -68,6 +68,8 @@ spec:
           image: phanan/koel
           command: ["php", "artisan", "koel:init", "--no-assets"]
           env:
+            - FORCE_HTTPS:
+              value: true
             - name: DB_CONNECTION
               value: mysql
             - name: DB_HOST
