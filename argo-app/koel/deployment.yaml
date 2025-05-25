@@ -102,6 +102,8 @@ spec:
           ports:
             - containerPort: 80
           env:
+            - name: FORCE_HTTPS
+              value: "true"
             - name: APP_KEY
               valueFrom:
                 secretKeyRef:
