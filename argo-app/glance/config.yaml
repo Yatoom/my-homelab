@@ -6,14 +6,15 @@ metadata:
 data:
   config.yaml: |
     pages:
-    - name: Home
-      # Optionally, if you only have a single page you can hide the desktop navigation for a cleaner look
-      # hide-desktop-navigation: true
+    - name: Start
+      hide-desktop-navigation: false
+      center-vertically: true
       columns:
-        - size: small
+        - size: full
           widgets:
-            - type: calendar
-              first-day-of-week: monday
+            - type: search
+              autofocus: true
+              search-engine: google
 
             - type: monitor
               cache: 1m
@@ -40,6 +41,53 @@ data:
                 - title: Music
                   url: https://music.jerryberry.nl
                   icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/koel.webp
+
+            - type: to-do
+
+            - type: bookmarks
+              groups:
+                - title: General
+                  links:
+                    - title: Gmail
+                      url: https://mail.google.com
+                    - title: Calendar
+                      url: https://calendar.google.com
+                    - title: Maps
+                      url: https://maps.google.com
+                    - title: Github
+                      url: https://github.com/
+                    - title: TradingView
+                      url: https://www.tradingview.com/
+                - title: Entertainment
+                  links:
+                    - title: YouTube
+                      url: https://www.youtube.com/
+                    - title: Reddit
+                      url: https://www.reddit.com/
+                    - title: Games
+                      url: https://store.playstation.com/nl-nl/pages/deals/
+                - title: News
+                  links:
+                    - title: BBC
+                      url: https://www.bbc.com/news
+                    - title: The Verge
+                      url: https://www.theverge.com/
+                    - title: Market Watch
+                      url: https://www.marketwatch.com/
+                    - title: The New Stack
+                      url: https://thenewstack.io
+                    - title: The Next Web
+                      url: https://thenextweb.com
+
+      - name: Tech
+      # Optionally, if you only have a single page you can hide the desktop navigation for a cleaner look
+      # hide-desktop-navigation: true
+      columns:
+        - size: small
+          widgets:
+            - type: calendar
+              first-day-of-week: monday
+
             - type: rss
               limit: 25
               collapse-after: 8
