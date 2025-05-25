@@ -78,7 +78,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: koel-db-secret
-                  key: username
+                  key: mysql-user
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
