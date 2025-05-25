@@ -87,7 +87,15 @@ spec:
                   name: koel-db-secret
                   key: mysql-password
           volumeMounts:
-            # mount the same volumes as the main koel container if needed
+            - name: koel-storage
+              mountPath: /music
+              subPath: music
+            - name: koel-storage
+              mountPath: /var/www/html/public/img/covers
+              subPath: covers
+            - name: koel-storage
+              mountPath: /var/www/html/storage/search-indexes
+              subPath: search-indexes
       containers:
         - name: koel
           image: phanan/koel:latest
