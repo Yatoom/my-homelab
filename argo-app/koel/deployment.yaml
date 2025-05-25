@@ -83,7 +83,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: koel-db-secret
-                  key: password
+                  key: mysql-password
           volumeMounts:
             # mount the same volumes as the main koel container if needed
       containers:
