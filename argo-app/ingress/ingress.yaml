@@ -15,6 +15,7 @@ spec:
         - qbittorrent.jerryberry.nl
         - prowlarr.jerryberry.nl
         - radarr.jerryberry.nl
+        - flaresolverr.jerryberry.nl
       secretName: jerryberry-ingress-tls
   rules:
     - host: movies.jerryberry.nl
@@ -77,3 +78,13 @@ spec:
                 name: prowlarr-ext
                 port:
                   number: 9696
+    - host: flaresolverr.jerryberry.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: flaresolverr-ext
+                port:
+                  number: 8191

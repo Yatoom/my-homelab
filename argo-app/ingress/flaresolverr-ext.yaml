@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flaresolver-ext
+  namespace: default
+spec:
+  type: ExternalName
+  externalName: flaresolverr-svc.media.svc.cluster.local
