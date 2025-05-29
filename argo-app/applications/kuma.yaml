@@ -19,7 +19,7 @@ spec:
                 cert-manager.io/cluster-issuer: lets-encrypt
                 nginx.ingress.kubernetes.io/proxy-body-size: "0"
               className: nginx
-              hostsname: kuma.jerryberry.nl
+              hostname: kuma.jerryberry.nl
               path: /
               pathType: Prefix
               servicePort: 5682
