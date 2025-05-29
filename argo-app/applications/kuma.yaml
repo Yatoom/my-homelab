@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/kumahq/kuma/
-    path: deployments/charts
-    targetRevision: release-2.10
+    repoURL: https://github.com/kumahq/kuma
+    path: deployments/charts/kuma
+    targetRevision: 2.10.1
     helm:
       values: |
         controlPlane:
