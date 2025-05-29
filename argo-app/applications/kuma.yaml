@@ -16,7 +16,6 @@ spec:
           tls:
             apiServer:
               create: true
-              secretName: kuma-ingress-tls
           ingress:
               enabled: true
               annotations:
