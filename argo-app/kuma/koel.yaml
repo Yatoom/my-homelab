@@ -1,19 +1,13 @@
 apiVersion: kuma.io/v1alpha1
 kind: MeshTrafficPermission
 metadata:
+  name: allow-all
   namespace: koel
-  name: database
   labels:
     kuma.io/mesh: default
 spec:
-  targetRef:
-    kind: Dataplane
-    labels:
-      app: mariadb
   from:
     - targetRef:
-        kind: MeshSubset
-        tags:
-          kuma.io/service: koel
+        kind: Mesh
       default:
         action: Allow
