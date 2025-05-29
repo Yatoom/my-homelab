@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kuma
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://kumahq.github.io/charts
+    chart: kuma
+    targetRevision: HEAD
+    helm:
+      values: |
+        controlPlane:
+          mode: standalone
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kuma-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
