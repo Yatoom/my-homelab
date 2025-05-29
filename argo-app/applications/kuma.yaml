@@ -15,7 +15,6 @@ spec:
           mode: standalone
           tls:
             apiServer:
-              secretName: kuma-api-tls
               create: true
           ingress:
               enabled: true
