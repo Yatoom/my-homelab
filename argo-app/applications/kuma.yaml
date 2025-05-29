@@ -13,6 +13,16 @@ spec:
       values: |
         controlPlane:
           mode: standalone
+          ingress:
+              enabled: true
+              annotations:
+                cert-manager.io/cluster-issuer: lets-encrypt
+                nginx.ingress.kubernetes.io/proxy-body-size: "0"
+              className: nginx
+              hostsname: kuma.jerryberry.nl
+              path: /
+              pathType: Prefix
+              servicePort: 5682
   destination:
     server: https://kubernetes.default.svc
     namespace: kuma-system
