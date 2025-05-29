@@ -21,13 +21,11 @@ spec:
               annotations:
                 cert-manager.io/cluster-issuer: lets-encrypt
                 nginx.ingress.kubernetes.io/proxy-body-size: "0"
-                nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-                nginx.ingress.kubernetes.io/backend-port: "5682"
               ingressClassName: nginx
               hostname: kuma.jerryberry.nl
               path: /
               pathType: Prefix
-              servicePort: 5682
+              servicePort: 5681
   destination:
     server: https://kubernetes.default.svc
     namespace: kuma-system
