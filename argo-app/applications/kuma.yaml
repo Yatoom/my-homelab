@@ -21,6 +21,7 @@ spec:
               annotations:
                 cert-manager.io/cluster-issuer: lets-encrypt
                 nginx.ingress.kubernetes.io/proxy-body-size: "0"
+                nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
               ingressClassName: nginx
               hostname: kuma.jerryberry.nl
               path: /
