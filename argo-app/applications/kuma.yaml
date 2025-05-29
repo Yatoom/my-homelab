@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/kumahq/kuma
-    path: deployments/charts/kuma
+    repoURL: https://kumahq.github.io/charts
+    chart: kuma
     targetRevision: 2.10.1
     helm:
       values: |
