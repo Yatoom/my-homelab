@@ -8,7 +8,6 @@ spec:
   source:
     repoURL: https://github.com/kumahq/kuma/
     path: deployments/charts
-    chart: kuma
     targetRevision: release-2.10
     helm:
       values: |
