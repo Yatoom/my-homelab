@@ -1,24 +1,24 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: observability-ingress
-  namespace: observability
-  annotations:
-    cert-manager.io/cluster-issuer: lets-encrypt
-    nginx.ingress.kubernetes.io/proxy-body-size: "0"
-spec:
-  tls:
-    - hosts:
-        - grafana.jerryberry.nl
-      secretName: observability-tls
-  rules:
-    - host: grafana.jerryberry.nl
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: kube-prom-stack-grafana
-                port:
-                  number: 80
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: observability-ingress
+#   namespace: observability
+#   annotations:
+#     cert-manager.io/cluster-issuer: lets-encrypt
+#     nginx.ingress.kubernetes.io/proxy-body-size: "0"
+# spec:
+#   tls:
+#     - hosts:
+#         - grafana.jerryberry.nl
+#       secretName: observability-tls
+#   rules:
+#     - host: grafana.jerryberry.nl
+#       http:
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: kube-prom-stack-grafana
+#                 port:
+#                   number: 80
