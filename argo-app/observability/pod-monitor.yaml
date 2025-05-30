@@ -11,7 +11,7 @@ spec:
       - istio-system
   selector:
     matchLabels:
-      app: istio-ztunnel
+      app: ztunnel
   podMetricsEndpoints:
     - port: http-envoy-prom
       interval: 15s
