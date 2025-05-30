@@ -1,14 +1,18 @@
 apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
-  name: istio-zztunnel
+  name: envoy-stats
   namespace: observability
   labels:
     release: kube-prom-stack
 spec:
+  namespaceSelector:
+    any: true
   selector:
-    matchLabels:
-      app: ztunnel
+    matchExpressions:
+      - key: istio.io/rev
+        operator: Exists
   podMetricsEndpoints:
-    - port: "15020"
+    - port: envoy-prom
+      path: /stats/prometheus
       interval: 15s
