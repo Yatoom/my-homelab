@@ -13,6 +13,6 @@ spec:
     matchLabels:
       app: ztunnel
   podMetricsEndpoints:
-    - port: http-envoy-prom
+    - port: 15020
       interval: 15s
       path: /metrics
