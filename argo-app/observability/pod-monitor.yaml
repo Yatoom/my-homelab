@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: envoy-sidecars
+  namespace: observability
+  labels:
+    release: kube-prom-stack
+spec:
+  selector:
+    matchLabels:
+      istio.io/rev: default # match your Istio revision
+  namespaceSelector:
+    any: true
+  podMetricsEndpoints:
+    - path: /stats/prometheus
+      port: envoy-prom
+      interval: 15s

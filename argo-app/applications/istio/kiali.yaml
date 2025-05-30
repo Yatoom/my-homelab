@@ -112,6 +112,25 @@ data:
       version_label: v2.8.0
       view_only_mode: false
     external_services:
+      grafana:
+        enabled: true
+        # Grafana service name is "grafana" and is in the "telemetry" namespace.
+        internal_url: 'http://kube-prom-stack-grafana.observability:80/'
+        # Public facing URL of Grafana
+        external_url: 'http://grafana.jerryberry.nl'
+        dashboards:
+        - name: "Istio Service Dashboard"
+          variables:
+            namespace: "var-namespace"
+            service: "var-service"
+        - name: "Istio Workload Dashboard"
+          variables:
+            namespace: "var-namespace"
+            workload: "var-workload"
+        - name: "Istio Mesh Dashboard"
+        - name: "Istio Control Plane Dashboard"
+        - name: "Istio Performance Dashboard"
+        - name: "Istio Wasm Extension Dashboard"
       custom_dashboards:
         enabled: true
       istio:
