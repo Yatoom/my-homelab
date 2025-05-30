@@ -8,10 +8,10 @@ metadata:
 spec:
   namespaceSelector:
     matchNames:
-      - istio-cni
+      - istio-system
   selector:
     matchLabels:
-      app: ztunnel
+      app: istio-ztunnel
   podMetricsEndpoints:
     - port: http-envoy-prom
       interval: 15s
