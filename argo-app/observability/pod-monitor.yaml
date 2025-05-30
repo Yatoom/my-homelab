@@ -6,13 +6,13 @@ metadata:
   labels:
     release: kube-prom-stack
 spec:
+  namespaceSelector:
+    matchNames:
+      - istio-cni
   selector:
     matchLabels:
       app: ztunnel
-  namespaceSelector:
-    matchNames:
-      - istio-system
   podMetricsEndpoints:
     - port: http-envoy-prom
-      path: /stats/prometheus
       interval: 15s
+      path: /metrics
