@@ -119,7 +119,7 @@ data:
       tracing:
         enabled: false
       prometheus:
-        url: http://prometheus-operated.observability.svc:9090
+        url: http://kube-prom-stack-kube-prome-prometheus.observability.svc:9090
     identity:
       cert_file: ""
       private_key_file: ""
