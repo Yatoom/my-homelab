@@ -10,8 +10,19 @@ spec:
   tls:
     - hosts:
         - grafana.jerryberry.nl
+        - prometheus.jerryberry.nl
       secretName: observability-tls
   rules:
+    - host: prometheus.jerryberry.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kube-prom-stack-kube-prome-prometheus
+                port:
+                  number: 9090
     - host: grafana.jerryberry.nl
       http:
         paths:
