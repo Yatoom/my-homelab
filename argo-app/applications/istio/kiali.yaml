@@ -11,7 +11,7 @@ spec:
     namespace: istio-system
   project: default
   source:
-    chart: kiali/kiali-server
+    chart: kiali-server
     repoURL: https://kiali.org/helm-charts
     targetRevision: 2.10.0
     helm:
