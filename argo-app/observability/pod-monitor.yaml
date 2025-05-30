@@ -6,13 +6,9 @@ metadata:
   labels:
     release: kube-prom-stack
 spec:
-  namespaceSelector:
-    matchNames:
-      - istio-system
   selector:
     matchLabels:
       app: ztunnel
   podMetricsEndpoints:
     - port: "15020"
       interval: 15s
-      path: /metrics
