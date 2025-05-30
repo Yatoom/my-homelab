@@ -17,7 +17,30 @@ spec:
     helm:
       values: |
         auth:
-          strategy: anonymous
+          strategy: anonymous  # For local testing. Consider using login for prod.
+
+        deployment:
+          accessible_namespaces: ["**"]  # Adjust if you want to limit visibility
+          ingress:
+            enabled: false  # Set to true if using Ingress
+
+        external_services:
+          istio:
+            url_service_version: http://istiod.istio-system:15014/version
+
+          prometheus:
+            url: http://kube-prom-stack-kube-prome-prometheus.observability.svc.cluster.local:9090
+
+          grafana:
+            enabled: true
+            in_cluster_url: http://kube-prom-stack-grafana.observability.svc.cluster.local
+
+          tracing:
+            enabled: true
+            in_cluster_url: http://tempo.observability.svc.cluster.local:16686
+
+        istio_namespace: istio-system
+
   syncPolicy:
     automated:
       prune: true
