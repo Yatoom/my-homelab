@@ -41,7 +41,8 @@ spec:
 
         postgresql:
           enabled: true
-          password: notsecure
+          auth:
+            password: notsecure
 
         redis:
             enabled: true
