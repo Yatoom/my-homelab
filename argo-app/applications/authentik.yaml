@@ -23,12 +23,6 @@ spec:
           error_reporting:
             enabled: false
 
-          postgresql:
-            password:
-              secretKeyRef:
-                name: authentik-secrets
-                key: postgresql_password
-
         server:
           ingress:
             annotations:
@@ -48,9 +42,12 @@ spec:
                   secretName: n8n-tls
 
         postgresql:
-            enabled: true
-            auth:
-                password: "ThisIsNotASecurePassword"
+          enabled: true
+          password:
+            secretKeyRef:
+              name: authentik-secrets
+              key: postgresql_password
+
         redis:
             enabled: true
   destination:

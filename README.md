@@ -24,7 +24,7 @@ addons:
     storage              # (core) Alias to hostpath-storage add-on, deprecated
 ```
 
-Note: `microk8s enable observability --kube-prometheus-stack-version=72.7.0` reduced the memory usage by more than half.
+Note: `microk8s enable observability --kube-prometheus-stack-version=72.7.0` reduced the memory usage by more than half. It uses a new version with more .
 
 
 ### Apps
