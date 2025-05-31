@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sonarqube
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/SonarSource/helm-chart-sonarqube
+    targetRevision: HEAD
+    path: charts/sonarqube
+    helm:
+      values: |
+        edition: developer
+        monitoringPasscode: no
+        persistence:
+          enabled: true
+          storageClass: openebs-hostpath
+          size: 10G
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: sonarqube
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
