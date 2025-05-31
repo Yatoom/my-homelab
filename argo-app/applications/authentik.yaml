@@ -44,6 +44,9 @@ spec:
           auth:
             password: "ThisIsNotASecurePassword"
 
+          passwordUpdateJob:
+            enabled: true
+
         redis:
           enabled: true
   destination:
