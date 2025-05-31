@@ -11,7 +11,9 @@ spec:
     path: charts/sonarqube
     helm:
       values: |
-        edition: developer
+        edition: ""
+        community:
+          enabled: true
         monitoringPasscode: "some-secret-password-idk"
         persistence:
           enabled: true
