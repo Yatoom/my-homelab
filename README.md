@@ -24,6 +24,16 @@ addons:
     storage              # (core) Alias to hostpath-storage add-on, deprecated
 ```
 
+### Apps
+- Glance ![](screenshots/glance.png)
+- ArgoCD
+- Open WebUI
+- SonarQube
+- Grafana
+- N8N
+- Jellyfin
+- Koel
+
 ### Fixes
 - `microk8s enable observability --kube-prometheus-stack-version=72.7.0` reduced the memory usage by more than half.
 
