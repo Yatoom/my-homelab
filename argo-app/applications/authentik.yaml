@@ -13,6 +13,7 @@ spec:
       # Uses fix from here: https://github.com/goauthentik/authentik/discussions/12852#discussioncomment-13056628
       valuesObject:
         authentik:
+          secret_key: s8gTQ5Vbc31mpKyG1Zdqco8RzHxk7ATz5pbT4AesIT8VjSBYlB
           # This sends anonymous usage-data, stack traces on errors and
           # performance data to authentik.error-reporting.a7k.io, and is fully opt-in
           error_reporting:
