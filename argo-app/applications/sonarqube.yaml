@@ -12,7 +12,7 @@ spec:
     helm:
       values: |
         edition: developer
-        monitoringPasscode: no
+        monitoringPasscode: "some-secret-password-idk"
         persistence:
           enabled: true
           storageClass: openebs-hostpath
