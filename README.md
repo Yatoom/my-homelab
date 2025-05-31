@@ -1,7 +1,7 @@
 # Homelab
 
 ## Host system
-Kubernetes is running on a i7-9700 with 16GB of RAM and 1.5TB of storage.
+Kubernetes is running on an Optiplex 3070 with an i7-9700, 16GB RAM and 1.5TB of storage.
 
 ### Microk8s
 The cluster is running on microk8s. A few things have been directly enabled using `microk8s addons`.
@@ -26,3 +26,6 @@ addons:
 
 ### Fixes
 - `microk8s enable observability --kube-prometheus-stack-version=72.7.0` reduced the memory usage by more than half.
+
+### Secrets
+Secrets are secured with [sealed-secrets](https://github.com/bitnami-labs/sealed-secrets). A secret file needs to be converted using: `kubeseal -f secret.yaml -o yaml > sealed.yaml`. `kubeseal` automatically uses the `kubectl` configuration to connect to the cluster.
