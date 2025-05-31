@@ -17,6 +17,19 @@ spec:
           enabled: true
           storageClass: openebs-hostpath
           size: 10G
+        ingress:
+          annotations:
+            cert-manager.io/cluster-issuer: lets-encrypt
+            nginx.ingress.kubernetes.io/proxy-body-size: "0"
+          enabled: true
+          ingressClassName: nginx
+          hosts:
+            - name: sonarqube.jerryberry.nl
+              path: /
+          tls:
+            - secretName: sonarqube-tls
+              hosts:
+                - sonarqube.jerryberry.nl
   destination:
     server: https://kubernetes.default.svc
     namespace: sonarqube
