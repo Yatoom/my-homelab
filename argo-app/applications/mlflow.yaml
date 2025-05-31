@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://charts.bitnami.com/bitnami
     chart: mlflow
-    targetRevision: 3.0.7
+    targetRevision: 3.0.6
     helm:
       values: |
         mlflow:
