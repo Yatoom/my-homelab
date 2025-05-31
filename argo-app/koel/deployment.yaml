@@ -63,46 +63,32 @@ spec:
       labels:
         app: koel
     spec:
-      # initContainers:
-      #   - name: koel-init
-      #     image: phanan/koel
-      #     command: ["php", "artisan", "koel:init", "--no-assets"]
-      #     env:
-      #       - name: FORCE_HTTPS
-      #         value: "true"
-      #       - name: DB_CONNECTION
-      #         value: mysql
-      #       - name: DB_HOST
-      #         value: mariadb
-      #       - name: DB_DATABASE
-      #         value: koel
-      #       - name: DB_USERNAME
-      #         valueFrom:
-      #           secretKeyRef:
-      #             name: koel-db-secret
-      #             key: mysql-user
-      #       - name: DB_PASSWORD
-      #         valueFrom:
-      #           secretKeyRef:
-      #             name: koel-db-secret
-      #             key: mysql-password
-      #     volumeMounts:
-      #       - name: koel-storage
-      #         mountPath: /music
-      #         subPath: music
-      #       - name: koel-storage
-      #         mountPath: /var/www/html/public/img/covers
-      #         subPath: covers
-      #       - name: koel-storage
-      #         mountPath: /var/www/html/storage/search-indexes
-      #         subPath: search-indexes
+      initContainers:
+        - name: koel-init
+          image: phanan/koel
+          command: ["php", "artisan", "koel:init", "--no-assets"]
+          env:
+            - name: FORCE_HTTPS
+              value: "true"
+            - name: DB_CONNECTION
+              value: mysql
+            - name: DB_HOST
+              value: mariadb
+            - name: DB_DATABASE
+              value: koel
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: koel-db-secret
+                  key: mysql-user
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: koel-db-secret
+                  key: mysql-password
       containers:
         - name: koel
           image: phanan/koel:latest
-          lifecycle:
-            postStart:
-              exec:
-                command: ["php", "artisan", "koel:init", "--no-assets"]
           ports:
             - containerPort: 80
           env:
