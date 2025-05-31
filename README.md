@@ -26,13 +26,13 @@ addons:
 
 ### Apps
 - Glance ![](screenshots/glance.png)
-- ArgoCD
-- Open WebUI
-- SonarQube
-- Grafana
-- N8N
-- Jellyfin
-- Koel
+- ArgoCD ![](screenshots/argocd.png)
+- Open WebUI ![](screenshots/open-webui.png)
+- SonarQube ![](screenshots/sonarqube.png)
+- Grafana ![](screenshots/grafana.png)
+- N8N ![](screenshots/n8n.png)
+- Jellyfin ![](screenshots/jellyfin.png)
+- Koel ![](screenshots/koel.png)
 
 ### Fixes
 - `microk8s enable observability --kube-prometheus-stack-version=72.7.0` reduced the memory usage by more than half.
