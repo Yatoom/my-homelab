@@ -20,6 +20,8 @@ spec:
           error_reporting:
             enabled: false
           postgresql:
+            name: authentik
+            user: authentik
             password: notsecure
 
         server:
@@ -41,7 +43,10 @@ spec:
 
         postgresql:
           enabled: true
+          password: notsecure
           auth:
+            username: authentik
+            database: authentik
             password: notsecure
 
         redis:
