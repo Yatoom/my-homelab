@@ -13,15 +13,14 @@ spec:
       # Example values - customize these for your needs
       values: |
         authentik:
-          secret_key:
-            secretKeyRef:
-              name: authentik-secrets
-              key: secret_key
+          secret_key: "s8gTQ5Vbc31mpKyG1Zdqco8RzHxk7ATz5pbT4AesIT8VjSBYlB"
 
           # This sends anonymous usage-data, stack traces on errors and
           # performance data to sentry.io, and is fully opt-in
           error_reporting:
             enabled: false
+          postgresql:
+            password: notsecure
 
         server:
           ingress:
@@ -36,17 +35,13 @@ spec:
               - authentik.jerrybery.nl
 
             tls:
-              tls:
-                - hosts:
-                  - n8n.jerryberry.nl
-                  secretName: n8n-tls
+              - hosts:
+                  - authentik.jerryberry.nl
+                secretName: authentik-tls
 
         postgresql:
           enabled: true
-          password:
-            secretKeyRef:
-              name: authentik-secrets
-              key: postgresql_password
+          password: notsecure
 
         redis:
             enabled: true
