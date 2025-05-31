@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://charts.bitnami.com/bitnami
+    repoURL: https://github.com/bitnami/charts
     chart: mlflow
-    targetRevision: 3.0.6
+    targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
     namespace: mlflow
