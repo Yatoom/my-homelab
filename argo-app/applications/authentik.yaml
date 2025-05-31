@@ -1,0 +1,64 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: authentik
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://charts.goauthentik.io/
+    chart: authentik
+    targetRevision: 2025.4.1
+    helm:
+      # Example values - customize these for your needs
+      values: |
+        authentik:
+          secret_key:
+            secretKeyRef:
+              name: authentik-secrets
+              key: secret_key
+
+          # This sends anonymous usage-data, stack traces on errors and
+          # performance data to sentry.io, and is fully opt-in
+          error_reporting:
+            enabled: false
+
+          postgresql:
+            password:
+              secretKeyRef:
+                name: authentik-secrets
+                key: postgresql_password
+
+        server:
+          ingress:
+            annotations:
+              cert-manager.io/cluster-issuer: lets-encrypt
+              nginx.ingress.kubernetes.io/proxy-body-size: "0"
+
+            # Specify kubernetes ingress controller class name
+            ingressClassName: nginx
+            enabled: true
+            hosts:
+              - authentik.jerrybery.nl
+
+            tls:
+              tls:
+                - hosts:
+                  - n8n.jerryberry.nl
+                  secretName: n8n-tls
+
+        postgresql:
+            enabled: true
+            auth:
+                password: "ThisIsNotASecurePassword"
+        redis:
+            enabled: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: authentik
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

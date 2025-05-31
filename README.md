@@ -24,6 +24,9 @@ addons:
     storage              # (core) Alias to hostpath-storage add-on, deprecated
 ```
 
+Note: `microk8s enable observability --kube-prometheus-stack-version=72.7.0` reduced the memory usage by more than half.
+
+
 ### Apps
 - Glance ![](screenshots/glance.png)
 - ArgoCD ![](screenshots/argocd.png)
@@ -33,9 +36,6 @@ addons:
 - N8N ![](screenshots/n8n.png)
 - Jellyfin ![](screenshots/jellyfin.png)
 - Koel ![](screenshots/koel.png)
-
-### Fixes
-- `microk8s enable observability --kube-prometheus-stack-version=72.7.0` reduced the memory usage by more than half.
 
 ### Secrets
 Secrets are secured with [sealed-secrets](https://github.com/bitnami-labs/sealed-secrets). A secret file needs to be converted using: `kubeseal -f secret.yaml -o yaml > sealed.yaml`. `kubeseal` automatically uses the `kubectl` configuration to connect to the cluster.
