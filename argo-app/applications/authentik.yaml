@@ -10,19 +10,17 @@ spec:
     chart: authentik
     targetRevision: 2025.4.1
     helm:
-      # Example values - customize these for your needs
       values: |
         authentik:
           secret_key: "s8gTQ5Vbc31mpKyG1Zdqco8RzHxk7ATz5pbT4AesIT8VjSBYlB"
 
           # This sends anonymous usage-data, stack traces on errors and
-          # performance data to sentry.io, and is fully opt-in
+          # performance data to authentik.error-reporting.a7k.io, and is fully opt-in
           error_reporting:
             enabled: false
+
           postgresql:
-            name: authentik
-            user: authentik
-            password: notsecure
+            password: "ThisIsNotASecurePassword"
 
         server:
           ingress:
@@ -43,14 +41,11 @@ spec:
 
         postgresql:
           enabled: true
-          password: notsecure
           auth:
-            username: authentik
-            database: authentik
-            password: notsecure
+            password: "ThisIsNotASecurePassword"
 
         redis:
-            enabled: true
+          enabled: true
   destination:
     server: https://kubernetes.default.svc
     namespace: authentik
