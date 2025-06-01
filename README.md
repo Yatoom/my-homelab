@@ -24,7 +24,9 @@ addons:
     storage              # (core) Alias to hostpath-storage add-on, deprecated
 ```
 
-Note: `microk8s enable observability --kube-prometheus-stack-version=72.7.0` reduced the memory usage by more than half. It uses a new version with more .
+### Fixes
+- Note: `microk8s enable observability --kube-prometheus-stack-version=72.7.0` reduced the memory usage by more than half. It uses a new version with more .
+- Due to some issues with [Argocd](https://github.com/bitnami/charts/issues/28893#issuecomment-2306499431) I was not able to deploy mlflow via an ArgoCD app. Instead I ran the following commands: `helm install mlflow oci://registry-1.docker.io/bitnamicharts/mlflow --set postgresql.auth.password=<password> --set postgresql.auth.username=jerry --set tracking.auth.password=<password>` and since I don't have a loadbalancer: `kubectl patch svc mlflow-tracking -n default -p '{"spec": {"type": "ClusterIP"}}'`
 
 
 ### Apps
