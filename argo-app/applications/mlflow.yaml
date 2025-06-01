@@ -14,13 +14,13 @@ spec:
       global:
         defaultStorageClass: openebs-hostpath
 
-      postgresql:
-        enabled: true
-        auth:
-          username: bn_mlflow
-          password: "somethingsomething"
-          database: bitnami_mlflow
-          existingSecret: ""
+        postgresql:
+          enabled: true
+          auth:
+            username: bn_mlflow
+            password: "somethingsomething"
+            database: bitnami_mlflow
+            existingSecret: ""
 
       tracking:
         ingress:
