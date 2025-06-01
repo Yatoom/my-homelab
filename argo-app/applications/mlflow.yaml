@@ -24,11 +24,6 @@ spec:
 
       postgresql:
         enabled: true
-        auth:
-          username: bn_mlflow
-          password: "test1234"
-          database: bitnami_mlflow
-          existingSecret: ""
 
       tracking:
         ingress:
