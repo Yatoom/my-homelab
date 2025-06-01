@@ -1,48 +1,48 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: mlflow
-  namespace: argocd
-spec:
-  project: default
-  source:
-    repoURL: https://github.com/bitnami/charts
-    path: bitnami/mlflow
-    targetRevision: mlflow/3.0.7
-  helm:
-    values: |
-      global:
-        defaultStorageClass: openebs-hostpath
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: mlflow
+#   namespace: argocd
+# spec:
+#   project: default
+#   source:
+#     repoURL: https://github.com/bitnami/charts
+#     path: bitnami/mlflow
+#     targetRevision: mlflow/3.0.7
+#   helm:
+#     values: |
+#       global:
+#         defaultStorageClass: openebs-hostpath
 
-      tracking:
-        persistence:
-          storageClass: openebs-hostpath
+#       tracking:
+#         persistence:
+#           storageClass: openebs-hostpath
 
-      run:
-        persistence:
-          storageClass: openebs-hostpath
+#       run:
+#         persistence:
+#           storageClass: openebs-hostpath
 
-      postgresql:
-        enabled: true
+#       postgresql:
+#         enabled: true
 
-      tracking:
-        ingress:
-          enabled: true
-          pathType: Prefix
-          hostname: mlflow.jerryberry.nl
-          ingressClassName: nginx
-          path: /
-          annotations:
-            cert-manager.io/cluster-issuer: "letsencrypt"
-            nginx.ingress.kubernetes.io/ssl-redirect: "true"
-            nginx.ingress.kubernetes.io/proxy-body-size: "0"
-          tls: true
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: mlflow
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+#       tracking:
+#         ingress:
+#           enabled: true
+#           pathType: Prefix
+#           hostname: mlflow.jerryberry.nl
+#           ingressClassName: nginx
+#           path: /
+#           annotations:
+#             cert-manager.io/cluster-issuer: "letsencrypt"
+#             nginx.ingress.kubernetes.io/ssl-redirect: "true"
+#             nginx.ingress.kubernetes.io/proxy-body-size: "0"
+#           tls: true
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: mlflow
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#     syncOptions:
+#       - CreateNamespace=true
