@@ -11,41 +11,21 @@ spec:
     targetRevision: mlflow/3.0.7
   helm:
     values: |
-      mlflow:
-        extraEnvVars:
-          - name: MLFLOW_ARTIFACT_ROOT
-            value: /bitnami/mlflow/artifacts
+      global:
+        defaultStorageClass: openebs-hostpath
 
-      artifactStorage:
-        type: local
-        local:
-          persistence:
-            enabled: true
-            storageClass: openebs-hostpath
-            size: 5Gi
-
-      database:
-        type: sqlite
-        sqlite:
-          persistence:
-            enabled: true
-            storageClass: openebs-hostpath
-            size: 2Gi
-
-      ingress:
-        enabled: true
-        hostname: mlflow.jerryberry.nl
-        ingressClassName: nginx
-        annotations:
-          kubernetes.io/ingress.class: "nginx"
-          cert-manager.io/cluster-issuer: "letsencrypt"
-          nginx.ingress.kubernetes.io/ssl-redirect: "true"
-          nginx.ingress.kubernetes.io/proxy-body-size: "0"
-        tls: true
-        extraTls:
-          - hosts:
-              - mlflow.jerryberry.nl
-            secretName: mlflow-tls
+      tracking:
+        ingress:
+          enabled: true
+          pathType: Prefix
+          hostname: mlflow.jerryberry.nl
+          ingressClassName: nginx
+          path: /
+          annotations:
+            cert-manager.io/cluster-issuer: "letsencrypt"
+            nginx.ingress.kubernetes.io/ssl-redirect: "true"
+            nginx.ingress.kubernetes.io/proxy-body-size: "0"
+          tls: true
   destination:
     server: https://kubernetes.default.svc
     namespace: mlflow
