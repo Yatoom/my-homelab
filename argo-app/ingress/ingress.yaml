@@ -16,6 +16,7 @@ spec:
         - prowlarr.jerryberry.nl
         - radarr.jerryberry.nl
         - flaresolverr.jerryberry.nl
+        - mlflow.jerryberry.nl
       secretName: jerryberry-ingress-tls
   rules:
     - host: movies.jerryberry.nl
@@ -88,3 +89,13 @@ spec:
                 name: flaresolverr-ext
                 port:
                   number: 8191
+    - host: mlflow.jerryberry.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: mlflow
+                port:
+                  number: 80
