@@ -14,18 +14,10 @@ spec:
       values: |
         image:
           tag: latest
-        worker:
-          config:
-            port: 443
-        webhook:
-          config:
-            port: 443
         main:
           config:
             N8N_HOST: "n8n.jerryberry.nl"
-            N8N_PORT: "443"
             N8N_PROTOCOL: "https"
-            port: 443
         ingress:
           annotations:
             cert-manager.io/cluster-issuer: lets-encrypt
