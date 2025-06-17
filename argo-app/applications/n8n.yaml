@@ -19,8 +19,6 @@ spec:
             N8N_HOST: "n8n.jerryberry.nl"
             N8N_PORT: "443"
             N8N_PROTOCOL: "https"
-          service:
-            type: ClusterIP
             port: 443
         ingress:
           annotations:
