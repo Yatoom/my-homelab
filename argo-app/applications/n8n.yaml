@@ -16,10 +16,9 @@ spec:
           tag: latest
         main:
           config:
-            N8N_EDITOR_BASE_URL	: https://n8n.jerryberry.nl
-            N8N_HOST: n8n.jerryberry.nl
-            N8N_PORT: 443
-            N8N_PROTOCOL: https
+            N8N_HOST: "n8n.jerryberry.nl"
+            N8N_PORT: "80"
+            N8N_PROTOCOL: "https"
         ingress:
           annotations:
             cert-manager.io/cluster-issuer: lets-encrypt
