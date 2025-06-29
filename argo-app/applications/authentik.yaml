@@ -12,7 +12,7 @@ spec:
     helm:
       values: |
         authentik:
-          secret_key: "PleaseGenerateA50CharKey"
+          secret_key: "k7Q9xR2bV8gN3LpYz5WcTu1JmAeXoHsB4DiFrqCvKEnMUdGYZh"
           error_reporting:
             enabled: false
           postgresql:
