@@ -37,6 +37,10 @@ spec:
           enabled: true
           auth:
             existingSecret: authentik-creds
+            secretKeys:
+              adminPasswordKey: "password"
+              userPasswordKey: "postgres-password"
+              replicationPasswordKey: "replication-password"
 
         redis:
           enabled: true
