@@ -22,7 +22,7 @@ spec:
           ingress:
             enabled: true
             hosts:
-              - authentik.domain.tld
+              - auth.jerryberry.nl
 
         postgresql:
           enabled: true
@@ -33,7 +33,7 @@ spec:
           enabled: true
   destination:
     server: https://kubernetes.default.svc
-    namespace: media
+    namespace: authentik
   syncPolicy:
     automated:
       prune: true
