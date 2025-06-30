@@ -1,3 +1,22 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: authentik-creds
+  namespace: authentik
+spec:
+  encryptedData:
+    password: AgARbwD8oHPgw3A0eFb5GaEmjM6nWdfTTBSFPOg0Kjd/2cVziyHWDYHDdNJ4LXvCEQ2+3Jc5/6rQKP0zGAgfQQz/w8gfoFsVHP8/yDSszuaBajr2JNZ+a/uqNu25RiaYQTd04q1sB7ZL0YiC69c8oN4C+8BFY+cOP1h6TxTyZjAPXiKAfLsk+mU3NHSwYg5tCVSUUJIY7CmCzuPJPr7nZrhOk1moq98XhxAmpclvJ/6OkuDkZCxStg+GPPyR/76QshzfH1B+spt3/eXxQAKP3ges4+dKtDpy6ydUxht0BiXYwWa5KEOVblApbVBVhfkQk2mDdhJpeSAgOhrT7U9PJvEcBaHOMlTYJ3jhFptYN1Lw/NSs3Uh79pVkwGTSiz5UJ+e6Hoa4KuO6IrJgZo3YAyYoYcJFhlYXAwO6d5qkHBTYv4fiYsHjLuS0wP4gxTnOsgsDUPxJBs3IQFNjCi5rSR1gZXRXWYh2IYOPCBs8vVMK1XphhUbStrjfyRJr+pZXPAyxKvkQyINfbYVkoYy2OkYotcg5+gj/J+nJGICCwQeQuhvRJAsfjfgyLbqe329epBglU+30L69/Dnee5FsM7ELu1YRlFdh66CKcOX6Mm33kN5U8SPqiTyyX5NEq+MOlPcHRQgoMuPqvozj8yCugF8UrJUSLV1XBw4VHHX98h2e/4JoMMQ39emg9I6HvEsqOlmS/zpFmtD1p4JTIp6B1BFYm+BusuqSiLlRdK0E=
+    secret_key: AgBld5Thgwk0ROR4yzA9kMPV4EtpYhXzuxFeGnxgR115/xC9lyR6FO1qI0YlBqqayjv+ytw20tHFUkkxh81kU2WNLyobeaYFAUExgay6ZCiHf0/p3g6PrfjzS8Yb0BcLMhu0q7AQbLUpAPRV5OPgVEWHvQWeafWHBwcAi8ohfzUfvkY5oeL8UFo2LyLa/9rmN6jDUCGOLPQY7SPCiwHHM2Jxs41uCt1/aNWomVZ5b27BEDt/yL8+jC2KLiDpak5RaqYEzI1I+IWZ5BaXjF/k4D4v4oQlrsewP2SW5KMxKq4YhtvZWpEdX7rvp/pGBh81/Ni6MQP0WXY1v7nN+tlWNjbizrUOMnEQSnN8oIhHkO+TdDk5L/KCHdhRWpyAU73trUx3fTM1spHDkUrpeuNtW77OcONzoDmBftqMwo219gbKpLyZkuK0K73iO7XbAcemKRBkd/NbvmkzJwczfrNQUHXiI0CLJrLcImR71ljP+QjGzSBQ4G0Wlzi0Expkx2moWnfEUVPAYmZICimeoRe+l5okyuJqNdFXbU/noZMbt75nl/8juCISoXoJ1QvtZPiMH5gNi8GCg8jYK1sSH3D6jf+Iz4ap8LkjE++/3wB7Y7rYqf+/cpF8jz93JlsB1z45PymdBz/4cky7VkFAanOYs9cwvfcsSWXqpR8wbj0qb8ldL+8digwEVey1g0dW1d6D/BaoTNCrhffqfHuf4KYVDLJwHpz1gq3u3OkSbxosTEdTl5We/JdwPWsPeRHYyuRd
+  template:
+    metadata:
+      creationTimestamp: null
+      name: authentik-creds
+      namespace: authentik
+    type: Opaque
+
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -11,26 +30,43 @@ spec:
     path: charts/authentik
     helm:
       values: |
-        authentik:
-          secret_key: "k7Q9xR2bV8gN3LpYz5WcTu1JmAeXoHsB4DiFrqCvKEnMUdGYZh"
-          error_reporting:
-            enabled: false
-          postgresql:
-            password: "ThisIsNotASecurePassword"
-
-        server:
-          ingress:
-            enabled: true
-            hosts:
-              - auth.jerryberry.nl
-
         postgresql:
           enabled: true
           auth:
-            password: "ThisIsNotASecurePassword"
+            existingSecret: authentik-creds
 
         redis:
           enabled: true
+
+        server:
+          env:
+            - name: AUTHENTIK_POSTGRESQL__PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: authentik-creds
+                  key: password
+            - name: AUTHENTIK_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: authentik-creds
+                  key: secret_key
+          ingress:
+            enabled: true
+            hosts:
+              - authentik.domain.tld
+
+        worker:
+          env:
+            - name: AUTHENTIK_POSTGRESQL__PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: authentik-creds
+                  key: password
+            - name: AUTHENTIK_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: authentik-creds
+                  key: secret_key
   destination:
     server: https://kubernetes.default.svc
     namespace: authentik
@@ -40,5 +76,4 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-
 
