@@ -62,6 +62,11 @@ spec:
             hosts:
               - auth.jerryberry.nl
 
+            tls:
+            - hosts:
+                - auth.jerryberry.nl
+              secretName: n8n-tls
+
         worker:
           env:
             - name: AUTHENTIK_POSTGRESQL__PASSWORD
