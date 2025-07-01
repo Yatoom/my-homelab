@@ -58,6 +58,10 @@ spec:
                   name: authentik-creds
                   key: secret_key
           ingress:
+            annotations:
+              cert-manager.io/cluster-issuer: lets-encrypt
+              nginx.ingress.kubernetes.io/proxy-body-size: "0"
+
             enabled: true
             hosts:
               - auth.jerryberry.nl
