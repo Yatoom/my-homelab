@@ -41,6 +41,9 @@ data:
                   - title: Music
                     url: https://music.jerryberry.nl
                     icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/koel.webp
+                  - title: Authentik
+                    url: https://auth.jerryberry.nl
+                    icon: https://cdn.jsdelivr.net/gh/selfhst/icons/webp/authentik.webp
 
               - type: to-do
 

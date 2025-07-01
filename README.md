@@ -38,6 +38,7 @@ addons:
 - N8N ![](screenshots/n8n.png)
 - Jellyfin ![](screenshots/jellyfin.png)
 - Koel ![](screenshots/koel.png)
+- Authentik ![](screenshots/authentik.png)
 
 ### Secrets
 Secrets are secured with [sealed-secrets](https://github.com/bitnami-labs/sealed-secrets). A secret file needs to be converted using: `kubeseal -f secret.yaml -o yaml > sealed.yaml`. `kubeseal` automatically uses the `kubectl` configuration to connect to the cluster.
