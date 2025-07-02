@@ -4,7 +4,7 @@ kind: SealedSecret
 metadata:
   creationTimestamp: null
   name: open-webui-secret
-  namespace: default
+  namespace: open-webui
 spec:
   encryptedData:
     client-secret: AgCWlSPmQHG3alPVJD0XkJrkNVB5RhseQxBWFjN5PjDw9fMuAUnNzrYbwDiFu4jZ29/Z3nOI4RvvG2hlFWMd2IzZCXRSeo7lG5coDmDw++mRtXdcxlWdHsvPvlRCulz6KdBaGXnRYV3DO3juFearGHpv9zpqynG8faO71VBle98UEhe7rVVx5t/5baxdbdwc7k/BE8qWN5VZYzxMFEFQJirE5D9S34ev4mRK8WOGz7fZKxvJDM/E0P3S6Ft63LDe0INErmuk8sD7gQC7LFKZBtMuaqBBQc4KdRNCTl/ARVTDQQnP9Ooy37zXrg9xqPA1o9hWLaUvGuipJA/1LVXb2NtKxyr2Hroa5GBBL9YXr8hXgW+SqWFpZy8xtoIzoLxM5YK7BE6O30HM/ubScuwOaRzN/Zppf3I0JSw9M/Br/qDNA5+lzuxS/90a3OBV67SXO9SuSzmOxzM4fl040mzC94QzLOudZMYSSB+ND3/YBRuVbsT3A3OvVh9zFgfOB+//2/bKxMx785N9glKTv/eL3xNZ42oRnNJlfpnGXrkGR055RvLC9J9vxr2ArjH6l+CVleuG422+IsodF+CdGl9p7gknFvm9pGhU4ZveSgst6XTzlhBDFozI05dLA5ISE7rWLCbQDjEKsLbpcTm7o+YPYrwRv8t4yu+B/kImZUy1OBGvDJsGnImSq3xUymqhgqau9A4Ruw+WJhQxlokUtIwNODrd2TAe/kCHTOVtsG6jUoP9phR3N2hPWIDqZmPXTTb6NmT79LkOxd9m3cPgUWxHMR1JH9iJSgHxdEqyT8vK4RqGUyGhnxUY+IgvLTtyesg9l8E=
@@ -12,7 +12,7 @@ spec:
     metadata:
       creationTimestamp: null
       name: open-webui-secret
-      namespace: default
+      namespace: open-webui
     type: Opaque
 ---
 apiVersion: argoproj.io/v1alpha1
@@ -30,7 +30,7 @@ spec:
       values: |
         sso:
           enabled: true
-          
+
           oidc:
             enabled: true
             clientId: 7ETm03FOmJAzf7aXq8352O8xbe9Y2ibQGh0RVrye
