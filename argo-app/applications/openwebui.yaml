@@ -30,7 +30,7 @@ spec:
       values: |
         sso:
           enabled: true
-
+          enableSignup: true
           oidc:
             enabled: true
             clientId: 7ETm03FOmJAzf7aXq8352O8xbe9Y2ibQGh0RVrye
