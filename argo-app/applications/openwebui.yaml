@@ -34,7 +34,7 @@ spec:
           oidc:
             enabled: true
             clientId: 7ETm03FOmJAzf7aXq8352O8xbe9Y2ibQGh0RVrye
-            clientSecretExistingSecretKey: client-secret
+            clientExistingSecretKey: client-secret
             clientExistingSecret: open-webui-secret
             providerName: authentik
             providerUrl: https://auth.jerryberry.nl/application/o/open-web-ui/.well-known/openid-configuration
