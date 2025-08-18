@@ -26,6 +26,18 @@ spec:
           volumeMounts:
             - { name: tls, mountPath: /opt/outline, readOnly: true }
             - { name: config, mountPath: /root/shadowbox }
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  - /bin/sh
+                  - "-c"
+                  - >-
+                    echo
+                    '{"rollouts":[{"id":"single-port","enabled":true}],"portForNewAccessKeys":40000,"hostname":"vpn.jerryberry.nl"}'
+                    >
+                    /root/shadowbox/persisted-state/shadowbox_server_config.json;
+          imagePullPolicy: Always
       volumes:
         - name: tls
           secret:

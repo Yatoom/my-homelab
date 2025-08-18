@@ -12,14 +12,14 @@ spec:
       port: 40000
       protocol: TCP
       targetPort: 40000
-      nodePort: 40000
+      nodePort: 30400
     - name: access-udp
       port: 40000
       protocol: UDP
       targetPort: 40000
-      nodePort: 40000
+      nodePort: 30400
     - name: mgmt-tcp
       port: 60000
       protocol: TCP
       targetPort: 60000
-      nodePort: 60000
+      nodePort: 30600
