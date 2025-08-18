@@ -1,0 +1,38 @@
+# apps/outline-vpn/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: outline-vpn
+  namespace: outline-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: outline-vpn }
+  template:
+    metadata:
+      labels: { app: outline-vpn }
+    spec:
+      containers:
+        - name: outline-vpn
+          image: quay.io/outline/shadowbox:stable
+          ports:
+            - containerPort: 40000  # client access
+            - containerPort: 60000  # management API
+          env:
+            - { name: SB_API_PORT, value: "60000" }
+            - { name: SB_API_PREFIX, value: "b782eecb-bb9e-58be-614a-d5de1431d6b3" }
+            - { name: SB_CERTIFICATE_FILE, value: "/opt/outline/tls.crt" }
+            - { name: SB_PRIVATE_KEY_FILE, value: "/opt/outline/tls.key" }
+          volumeMounts:
+            - { name: tls, mountPath: /opt/outline, readOnly: true }
+            - { name: config, mountPath: /root/shadowbox }
+      volumes:
+        - name: tls
+          secret:
+            secretName: tls-outline-vpn-imported
+            items:
+              - { key: tls.crt, path: tls.crt }
+              - { key: tls.key, path: tls.key }
+        - name: config
+          persistentVolumeClaim:
+            claimName: outline-vpn-claim

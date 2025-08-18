@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: outline-vpn
+  namespace: outline-system
+spec:
+  type: NodePort
+  selector:
+    app: outline-vpn
+  ports:
+    - name: access-tcp
+      port: 40000
+      protocol: TCP
+      targetPort: 40000
+      nodePort: 30400
+    - name: access-udp
+      port: 40000
+      protocol: UDP
+      targetPort: 40000
+      nodePort: 30400
+    - name: mgmt-tcp
+      port: 60000
+      protocol: TCP
+      targetPort: 60000
+      nodePort: 30600
