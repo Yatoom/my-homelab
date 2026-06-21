@@ -1,0 +1,18 @@
+# apiVersion: kagent.dev/v1alpha2
+# kind: Agent
+# metadata:
+#   name: cluster-assistant
+#   namespace: kagent
+# spec:
+#   modelConfig:
+#     name: minimax-config
+#   instructions: |
+#     You are a DevOps assistant. You have access to cluster tools via MCP.
+#     Help the user manage the home lab infrastructure safely.
+#   tools:
+#     - type: McpServer
+#       mcpServer:
+#         name: k8s-tools
+#         kind: RemoteMCPServer
+#         toolNames:
+#           - k8s_get_resources
