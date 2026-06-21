@@ -1,0 +1,15 @@
+apiVersion: kagent.dev/v1alpha2
+kind: ModelConfig
+metadata:
+  name: bedrock-config
+  namespace: kagent
+spec:
+  apiKeySecret: kagent-bedrock
+  apiKeySecretKey: AWS_API_KEY
+
+  model: <your-minimax-model-id>
+
+  provider: OpenAI
+
+  openAI:
+    baseUrl: https://bedrock-runtime.eu-west-1.amazonaws.com/openai/v1
