@@ -1,9 +1,11 @@
 # Homelab
 
 ## Host system
+
 Kubernetes is running on an Optiplex 3070 with an i7-9700, 16GB RAM and 1.5TB of storage.
 
 ### Microk8s
+
 The cluster is running on microk8s. A few things have been directly enabled using `microk8s addons`.
 
 ```
@@ -25,11 +27,14 @@ addons:
 ```
 
 ### Fixes
-- Note: `microk8s enable observability --kube-prometheus-stack-version=72.7.0` reduced the memory usage by more than half. It uses a new version with more .
-- Due to some issues with [Argocd](https://github.com/bitnami/charts/issues/28893#issuecomment-2306499431) I was not able to deploy mlflow via an ArgoCD app. Instead I ran the following commands: `helm install mlflow oci://registry-1.docker.io/bitnamicharts/mlflow --set postgresql.auth.password=<password> --set postgresql.auth.username=jerry --set tracking.auth.password=<password>` and since I don't have a loadbalancer: `kubectl patch svc mlflow-tracking -n default -p '{"spec": {"type": "ClusterIP"}}'`
 
+- Note: `microk8s enable observability --kube-prometheus-stack-version=72.7.0` reduced the memory usage by more than half. It uses a new version wit more optimization.
+- Due to some issues with [Argocd](https://github.com/bitnami/charts/issues/28893#issuecomment-2306499431) I was not able to deploy mlflow via an ArgoCD app. Instead I ran the following commands:
+  - `helm install mlflow oci://registry-1.docker.io/bitnamicharts/mlflow --set postgresql.auth.password=<password> --set postgresql.auth.username=jerry --set tracking.auth.password=<password>` and since I don't have a loadbalancer: `kubectl patch svc mlflow-tracking -n default -p '{"spec": {"type": "ClusterIP"}}'`
+  - `helm install kagent-crds oci://ghcr.io/kagent-dev/kagent/helm/kagent-crds --version 0.9.9  --namespace kagent --create-namespace`
 
 ### Apps
+
 - Glance ![](screenshots/glance.png)
 - ArgoCD ![](screenshots/argocd.png)
 - Open WebUI ![](screenshots/open-webui.png)
@@ -41,4 +46,5 @@ addons:
 - Authentik ![](screenshots/authentik.png)
 
 ### Secrets
+
 Secrets are secured with [sealed-secrets](https://github.com/bitnami-labs/sealed-secrets). A secret file needs to be converted using: `kubeseal -f secret.yaml -o yaml > sealed.yaml`. `kubeseal` automatically uses the `kubectl` configuration to connect to the cluster.
