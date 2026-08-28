@@ -1,26 +1,26 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: kagent
-  namespace: argocd
-spec:
-  project: default
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: kagent
+#   namespace: argocd
+# spec:
+#   project: default
 
-  source:
-    repoURL: ghcr.io/kagent-dev/kagent/helm
-    chart: kagent
-    targetRevision: 0.9.9
+#   source:
+#     repoURL: ghcr.io/kagent-dev/kagent/helm
+#     chart: kagent
+#     targetRevision: 0.9.9
 
-    helm:
-      useOCI: true
+#     helm:
+#       useOCI: true
 
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: kagent
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: kagent
 
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#     syncOptions:
+#       - CreateNamespace=true
