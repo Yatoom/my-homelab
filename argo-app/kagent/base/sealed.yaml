@@ -1,16 +1,16 @@
----
-apiVersion: bitnami.com/v1alpha1
-kind: SealedSecret
-metadata:
-  creationTimestamp: null
-  name: kagent-bedrock
-  namespace: kagent
-spec:
-  encryptedData:
-    AWS_API_KEY: AgATZl5Du0lue8s8u0V9DMKa7+b1cMP+XC1Zg9maLlMkWfwvXaMt3B6Vsd6Xvdx922K6zj6ZSf03GZgcVQ2nGfNRv6mAeq7tJioTgtZhyLqbsioxRy1sxzkWsWIJmh3t77o/EX+0n4ZxS2W9i9w49mse9KrwIe8RlKxpKooX+D0ykfWGYH9u2eTJjGtcBi+udNZdIMLRfENxZoBQxwZWcaJq0+xCM85+uwGOXT3qWb0rQY2cBTryRG6ALcauQcYwgcBS2NFrIawX1eQ7bnisCCOdHv5fspYRg86kgqRhkQzd123OiuQKoOiitAgg7d/Vgn0CPeYrkPs/3q7LVl59FF4JR7uhNUjGsEwdG4/3rIgRVGHqIk8e9IPGiR7YmqfS4FMJMIgOuMN8W/kMJuQSx5D3iEqjaDZpX4wrP7cNpJZTi03AIlMm8+wv45a+olIuJV2RXLQpRc/axElqgj+fD8koaV0j0u0Bi7wNIQfmgPJooFlH7xrMly4jkklDD7CqSRjTAWPXKl2/BS+89RECOKHypRROCb2XB9jEu7itS6etElbbopscot7Ut6MaDGS5QyMQvLEhOdG52H38lhTOHU+g8h+VattgFMGue3d/EkhirxI2OYXYucTuDsFhrlHUKolz8CNu8hNfASQRPbOa4BTRuVeb1C7isDJCjdSqh4WD8oRnN7qXhFUg1y9moRmTOV01cySamynwJhESW5kjW9R0V/gIvjMnCZe9uhZGv3WhBKhrh5YWT9avXevgrCCUsSNj02MVLLfLN92YvmtDStBZOLh8u9pmnD92JCpfBSDCW8PswDPcyfXaFGJCylm4OT1wVb5X6ecijtGafOEmMMEGpPIboyn9ChRD6/UMitkzUsr52Gk=
-  template:
-    metadata:
-      creationTimestamp: null
-      name: kagent-bedrock
-      namespace: kagent
-    type: Opaque
+# ---
+# apiVersion: bitnami.com/v1alpha1
+# kind: SealedSecret
+# metadata:
+#   creationTimestamp: null
+#   name: kagent-bedrock
+#   namespace: kagent
+# spec:
+#   encryptedData:
+#     AWS_API_KEY: AgATZl5Du0lue8s8u0V9DMKa7+b1cMP+XC1Zg9maLlMkWfwvXaMt3B6Vsd6Xvdx922K6zj6ZSf03GZgcVQ2nGfNRv6mAeq7tJioTgtZhyLqbsioxRy1sxzkWsWIJmh3t77o/EX+0n4ZxS2W9i9w49mse9KrwIe8RlKxpKooX+D0ykfWGYH9u2eTJjGtcBi+udNZdIMLRfENxZoBQxwZWcaJq0+xCM85+uwGOXT3qWb0rQY2cBTryRG6ALcauQcYwgcBS2NFrIawX1eQ7bnisCCOdHv5fspYRg86kgqRhkQzd123OiuQKoOiitAgg7d/Vgn0CPeYrkPs/3q7LVl59FF4JR7uhNUjGsEwdG4/3rIgRVGHqIk8e9IPGiR7YmqfS4FMJMIgOuMN8W/kMJuQSx5D3iEqjaDZpX4wrP7cNpJZTi03AIlMm8+wv45a+olIuJV2RXLQpRc/axElqgj+fD8koaV0j0u0Bi7wNIQfmgPJooFlH7xrMly4jkklDD7CqSRjTAWPXKl2/BS+89RECOKHypRROCb2XB9jEu7itS6etElbbopscot7Ut6MaDGS5QyMQvLEhOdG52H38lhTOHU+g8h+VattgFMGue3d/EkhirxI2OYXYucTuDsFhrlHUKolz8CNu8hNfASQRPbOa4BTRuVeb1C7isDJCjdSqh4WD8oRnN7qXhFUg1y9moRmTOV01cySamynwJhESW5kjW9R0V/gIvjMnCZe9uhZGv3WhBKhrh5YWT9avXevgrCCUsSNj02MVLLfLN92YvmtDStBZOLh8u9pmnD92JCpfBSDCW8PswDPcyfXaFGJCylm4OT1wVb5X6ecijtGafOEmMMEGpPIboyn9ChRD6/UMitkzUsr52Gk=
+#   template:
+#     metadata:
+#       creationTimestamp: null
+#       name: kagent-bedrock
+#       namespace: kagent
+#     type: Opaque
