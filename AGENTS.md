@@ -26,7 +26,7 @@
 - **Uptime Kuma** (`uptime-kuma`): single-replica status monitor with a persistent data claim; Ingress at `uptime.jerryberry.nl`.
 - **Koel and MariaDB** (`koel`): single-replica music application and database, with persistent storage; Ingress at `music.jerryberry.nl`.
 - **Media utilities** (`media`): single-replica Sonarr, Radarr, Prowlarr, qBittorrent, and FlareSolverr Deployments with ClusterIP Services. The central Ingress routes them at `sonarr.jerryberry.nl`, `radarr.jerryberry.nl`, `prowlarr.jerryberry.nl`, `qbittorrent.jerryberry.nl`, and `flaresolverr.jerryberry.nl`. Sonarr, Radarr, and qBittorrent share the media/downloads claim where configured.
-- **Outline VPN** (`outline-system`): single-replica Shadowbox Deployment exposed with NodePort 30443 (client TCP/UDP) and 30600 (management TCP). New access keys advertise port 30443; the server uses a mounted TLS Secret and persistent configuration.
+- **Outline VPN** (`outline-system`): single-replica Shadowbox Deployment. Client ports 30400 (legacy keys) and 30443 (new keys) are exposed on matching NodePorts for TCP and UDP; management is on NodePort 30600/TCP. The server uses a mounted TLS Secret and persistent configuration. `scripts/outline-manager-json.sh` builds the Manager setup JSON from the live deployment and TLS Secret without rotating certificates.
 - **Kiali**: Kubernetes resources are present in `argo-app/applications/istio/kiali.yaml`; check cluster state before treating it as installed.
 
 ## Traffic, certificates, and storage

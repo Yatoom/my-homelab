@@ -16,7 +16,8 @@ spec:
         - name: outline-vpn
           image: quay.io/outline/shadowbox:stable
           ports:
-            - containerPort: 40000  # client access
+            - containerPort: 30400  # existing access keys
+            - containerPort: 30443  # new access keys
             - containerPort: 60000  # management API
           env:
             - { name: SB_API_PORT, value: "60000" }

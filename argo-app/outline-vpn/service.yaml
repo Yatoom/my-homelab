@@ -8,15 +8,25 @@ spec:
   selector:
     app: outline-vpn
   ports:
-    - name: access-tcp
-      port: 40000
+    - name: access-legacy-tcp
+      port: 30400
       protocol: TCP
-      targetPort: 40000
+      targetPort: 30400
+      nodePort: 30400
+    - name: access-legacy-udp
+      port: 30401
+      protocol: UDP
+      targetPort: 30400
+      nodePort: 30400
+    - name: access-tcp
+      port: 30443
+      protocol: TCP
+      targetPort: 30443
       nodePort: 30443
     - name: access-udp
-      port: 40001
+      port: 30444
       protocol: UDP
-      targetPort: 40000
+      targetPort: 30443
       nodePort: 30443
     - name: mgmt-tcp
       port: 60000

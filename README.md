@@ -47,9 +47,9 @@ addons:
 
 ### Outline VPN
 
-Outline client traffic is exposed on NodePort `30443` over both TCP and UDP. Point `vpn.jerryberry.nl` at the public IP that reaches the MicroK8s node, and configure the router/firewall to forward external TCP and UDP port `30443` to the node's port `30443`. The existing HTTPS ingress continues to use port `443`.
+Outline client traffic for new keys is exposed on NodePort `30443` over both TCP and UDP; NodePort `30400` is retained for existing keys. Point `vpn.jerryberry.nl` at the public IP that reaches the MicroK8s node, and configure the router/firewall to forward external TCP and UDP port `30443` to the node's port `30443` (and `30400` if existing keys are still in use). The existing HTTPS ingress continues to use port `443`.
 
-Create an access key in Outline Manager. Its address should use `vpn.jerryberry.nl:30443`; add `&prefix=%16%03%01%00%C2%A8%01%01` to the end of the access-key URL, then import that URL into the Outline Client app. Keep the key private. The Outline management API is separate from client traffic and uses its own Service port; do not expose it publicly unless needed for Outline Manager.
+Create a new access key in Outline Manager. Its address should use `vpn.jerryberry.nl:30443`; add `&prefix=%16%03%01%00%C2%A8%01%01` to the end of the access-key URL, then import that URL into the Outline Client app. Keep the key private. To produce the Outline Manager setup JSON using the currently installed certificate, run `scripts/outline-manager-json.sh`. It assumes the Manager API is externally available at TCP port `60000`; pass the actual external hostname and port as arguments if they differ. The API is exposed in-cluster on NodePort `30600`; do not expose it publicly unless needed for Outline Manager.
 
 ### Secrets
 
