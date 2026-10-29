@@ -34,7 +34,7 @@ spec:
                   - "-c"
                   - >-
                     echo
-                    '{"rollouts":[{"id":"single-port","enabled":true}],"portForNewAccessKeys":40000,"hostname":"vpn.jerryberry.nl"}'
+                    '{"rollouts":[{"id":"single-port","enabled":true}],"portForNewAccessKeys":30443,"hostname":"vpn.jerryberry.nl"}'
                     >
                     /root/shadowbox/persisted-state/shadowbox_server_config.json;
           imagePullPolicy: Always

@@ -45,6 +45,12 @@ addons:
 - Koel ![](screenshots/koel.png)
 - Authentik ![](screenshots/authentik.png)
 
+### Outline VPN
+
+Outline client traffic is exposed on NodePort `30443` over both TCP and UDP. Point `vpn.jerryberry.nl` at the public IP that reaches the MicroK8s node, and configure the router/firewall to forward external TCP and UDP port `30443` to the node's port `30443`. The existing HTTPS ingress continues to use port `443`.
+
+Create an access key in Outline Manager. Its address should use `vpn.jerryberry.nl:30443`; add `&prefix=%16%03%01%00%C2%A8%01%01` to the end of the access-key URL, then import that URL into the Outline Client app. Keep the key private. The Outline management API is separate from client traffic and uses its own Service port; do not expose it publicly unless needed for Outline Manager.
+
 ### Secrets
 
 Secrets are secured with [sealed-secrets](https://github.com/bitnami-labs/sealed-secrets). A secret file needs to be converted using: `kubeseal -f secret.yaml -o yaml > sealed.yaml`. `kubeseal` automatically uses the `kubectl` configuration to connect to the cluster.
